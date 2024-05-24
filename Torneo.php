@@ -99,6 +99,7 @@ class Torneo {
     }
 
     public function calcularPremioPartido($objPartido){
+        //entiendo que esto falla porque no estoy accediendo adentro del array, no tuve tiempo de corregirlo
         $ganador = $objPartido->darEquipoGanador();
         $premio = $objPartido->coeficientePartido() * $this->importePremio;
         $arregloPremio=["equipoGanador"=> $ganador, "premioPartido"=>$premio];
