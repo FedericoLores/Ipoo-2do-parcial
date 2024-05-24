@@ -127,14 +127,14 @@ if($ganadores == null){
 }
 
 //punto F
-$premio = $torneo->calcularPremioPartido(count($torneo->getColPartidos()) - 1);
+$premio = $torneo->calcularPremioPartido($torneo->getUnPartido(count($torneo->getColPartidos()) - 1));
 if(count($premio["equipoGanador"]) == 1){
     echo "Equipo ganador: " . $premio["equipoGanador"] . "\n";
 } else{
     echo "Equipos ganadores: " . $premio["equipoGanador"][0] . "\n" . $premio["equipoGanador"][1] . "\n";
 }
 
-$premio = $torneo->calcularPremioPartido(count($torneo->getColPartidos()));
+$premio = $torneo->calcularPremioPartido($torneo->getUnPartido(count($torneo->getColPartidos())));
 if(count($premio["equipoGanador"]) == 1){
     echo "Equipo ganador: " . $premio["equipoGanador"] . "\n";
 } else{
