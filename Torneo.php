@@ -51,7 +51,7 @@ class Torneo {
                 if($tipoPartido == "futbol"){
                     if($objEquipo1->getObjCategoria() == $objEquipo2->getObjCategoria()){
                         $partido = new PartidoFutbol($id, $fecha, $objEquipo1, 0, $objEquipo2, 0, $objEquipo1->getObjCategoria());
-                        $this->setUnPartido($cantPartidos, $partido);
+                        $this->setUnPartido($this->getColPartidos(), $partido);
                         $seRegistro=true;
                     }
                 }else{ //no se revisa porque solo puede ser futbol o basquet

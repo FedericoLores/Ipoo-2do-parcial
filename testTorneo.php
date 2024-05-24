@@ -7,7 +7,8 @@ include_once("PartidoFutbol.php");
 include_once("PartidoBasquet.php");
 
 function cantEquipos($objTorneo){
-    $colNombresEquipos = []; //para asegurarnos de no contar ningun equipo dos veces
+    if(count($objTorneo->getColPartidos()) != 0){
+        $colNombresEquipos = []; //para asegurarnos de no contar ningun equipo dos veces
     $colPartidos = $objTorneo->getColPartidos();
     $colNombresEquipos[] = $colPartidos[0]->getObjEquipo1()->getNombre();
     foreach($colPartidos as $partido){
@@ -33,6 +34,9 @@ function cantEquipos($objTorneo){
         }
     }
     $cant = count($colNombresEquipos);
+    } else {
+        $cant = 0;
+    }
     return $cant;
 }
 
@@ -74,7 +78,7 @@ if($puntoA){
 } else{
     $mensaje = "No se pudo registrar el partido.";
 }
-echo $mensaje . "\n Cantidad de equipos: " . cantEquipos($torneo);
+echo $mensaje . " Cantidad de equipos: " . cantEquipos($torneo) . "\n";
 
 $puntoB= $torneo->ingresarPartido($objE11, $objE11, '2024-05-23', 'basquetbol');
 if($puntoB){
@@ -82,7 +86,7 @@ if($puntoB){
 } else{
     $mensaje = "No se pudo registrar el partido.";
 }
-echo $mensaje . "\n Cantidad de equipos: " . cantEquipos($torneo);
+echo $mensaje . " Cantidad de equipos: " . cantEquipos($torneo) . "\n";
 
 $puntoC= $torneo->ingresarPartido($objE9, $objE10, '2024-05-23', 'basquetbol');
 if($puntoB){
@@ -90,7 +94,7 @@ if($puntoB){
 } else{
     $mensaje = "No se pudo registrar el partido.";
 }
-echo $mensaje . "\n Cantidad de equipos: " . cantEquipos($torneo);
+echo $mensaje . " Cantidad de equipos: " . cantEquipos($torneo) . "\n";
 
 //punto D
 $ganadores= $torneo->darGanadores("basquet");
