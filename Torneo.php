@@ -73,6 +73,9 @@ class Torneo {
                     $ganador =$partido->darEquipoGanador();
                     if(count($ganador) == 1){
                         $ganadores[] = $ganador[0];
+                    } else {
+                        $ganadores[] = $ganador[0];
+                        $ganadores[] = $ganador[1];
                     }
                 }
             }
@@ -82,6 +85,9 @@ class Torneo {
                     $ganador =$partido->darEquipoGanador();
                     if(count($ganador) == 1){
                         $ganadores[] = $ganador[0];
+                    } else {
+                        $ganadores[] = $ganador[0];
+                        $ganadores[] = $ganador[1];
                     }
                 }
             }
